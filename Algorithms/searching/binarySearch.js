@@ -1,5 +1,5 @@
 /*
- ********	 Theory On Binary Search 
+ ********	 About Binary Search 
  *		+ Inputs are sorted
  *		+ Search a sorted array by repeatedly dividing the search interval in half
  *		+ You guess the middle number and eleminate half of the reamining number
@@ -7,12 +7,13 @@
  *			the interval, narrow the interval
  * 			to the lower half. Otherwise narrow it to the upper half. Repeatedly check until the
  * 			value is found or the interval is empty.
- *		+ Binary search takes log(n) steps in the worst case
+ *		+ Binary search takes O(log n) steps in the worst case
+ *		+ Binary search is a lot faster than a linear/simple search
 */
 
 const binarySearch = (arr, item, low = 0, high = arr.length - 1) => {
 	console.log(`Looking for '${item}' in array: ${arr}`);
-	
+
 	while (low <= high) {
 		// Get the middle element index
 		let mid = Math.floor((low + high) / 2);
@@ -28,7 +29,6 @@ const binarySearch = (arr, item, low = 0, high = arr.length - 1) => {
 		};
 		
 	}
-
 	return null;
 }
 

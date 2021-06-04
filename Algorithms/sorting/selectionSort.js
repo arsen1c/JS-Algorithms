@@ -1,22 +1,47 @@
-function selectionSort(arr) {
+/*
+ *******	About Selection Sor
+ *		+ The selection sort algorithm sorts an array by repeatedly 
+ * 			finding the minimum element (considering ascending order) from 
+ * 			unsorted part and putting it at the beginning.
+ *		+ The algorithm maintains 2 subarrays in an give array
+ *			1. The subarray which is already sorted.
+ *			2. Remaining subarray which is unsorted.
+ *		+ In every iteration, the min element from the unsorted
+ *		+ subarray is picked and moved to the sorted subarray
+ ******* Time Complexity
+ *		+ You have to check each element in the list, "n" times
+ *		+ Then compare the next element with current min element, "n" times
+ *		+ This takes O(n*n) time OR O(n**2)
+*/ 
 
-	for (let i = 0; i < arr.length; i++) {
-		let min = i;
+const selectionSort = (arr) => {
 
-		for (let j = i+1; j< arr.length; j++) {
-			if (arr[j] < arr[min]) {
-				min = j;
+	// Loop through the array
+	// left side should be the sorted and right be the unsotred
+
+	let array = [...arr]; // We don't want to mutate the original array
+	const length = array.length;
+
+	for (let x = 0; x < length - 1; x++) {
+		let min = x; // assuming current element is the lowest
+
+		// Check the adjacent element and compare with current element
+		// if adjacent element is lower than current min, set min to adjacent index
+		for (let y = x + 1; y < length; y++) {
+			if (array[y] < array[min]) {
+				min = y; // change current min number if smaller num is found	
 			}
 		}
 
-		if (min !== i) {
-			[arr[i], arr[min]] = [arr[min], arr[i]]; 
+		// If currnet min !== intial min, exchange the positions
+		if (min !== x) {
+			[array[x], array[min]] = [array[min], array[x]];
 		}
-	}
+	};
 
-	return arr;
+	return array;
 }
 
-console.log(selectionSort([5,3,1,8]));
-
-console.log(binarySearch([1,2,3,4,5,6,7], 6));
+let inputArr = [5, 6, 7, 8, 1, 2, 12, 14]
+console.log('Array before:', inputArr);
+console.log('Array after:', selectionSort(inputArr));
