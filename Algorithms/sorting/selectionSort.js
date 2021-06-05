@@ -1,5 +1,5 @@
 /*
- *******	About Selection Sor
+ *******	About Selection Sort
  *		+ The selection sort algorithm sorts an array by repeatedly 
  * 			finding the minimum element (considering ascending order) from 
  * 			unsorted part and putting it at the beginning.
@@ -8,7 +8,7 @@
  *			2. Remaining subarray which is unsorted.
  *		+ In every iteration, the min element from the unsorted
  *		+ subarray is picked and moved to the sorted subarray
- ******* Time Complexity
+ ******* 	Time Complexity
  *		+ You have to check each element in the list, "n" times
  *		+ Then compare the next element with current min element, "n" times
  *		+ This takes O(n*n) time OR O(n**2)

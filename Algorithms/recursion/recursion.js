@@ -1,11 +1,19 @@
 // Recursive function to print numbers
 function count(i) {
 	console.log(i);
-	if (i <= 0) {return }
+	if (i <= 0) return;
 	count(i-1);
+
+	/*
+		While loop approach
+		while(!i <= 0) {
+			console.log(i);
+			i--;
+		}
+	*/
 }
 
-// console.log(count(10));
+count(10);
 
 // [+] FACTORIAL [+]
 function factorial (n) {
@@ -16,4 +24,4 @@ function factorial (n) {
 	}
 }
 
-console.log(factorial(4));
+// console.log(factorial(4))
