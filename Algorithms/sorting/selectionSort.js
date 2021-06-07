@@ -42,6 +42,9 @@ const selectionSort = (arr) => {
 	return array;
 }
 
-let inputArr = [5, 6, 7, 8, 1, 2, 12, 14]
+let inputArr = [5, 6, 7, 8, 1, 2, 12, 14];
+// let inputArr = ['zebronics', 'apple', 'orange', 'kingdom', 'aashish'];
 console.log('Array before:', inputArr);
 console.log('Array after:', selectionSort(inputArr));
+
+

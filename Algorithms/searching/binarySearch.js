@@ -16,7 +16,7 @@ const binarySearch = (arr, item, low = 0, high = arr.length - 1) => {
 
 	while (low <= high) {
 		// Get the middle element index
-		let mid = Math.floor((low + high) / 2);
+		const mid = Math.floor((low + high) / 2);
 
 		// item === middle element, return it.
 		if (arr[mid] === item) { return mid };
@@ -29,7 +29,27 @@ const binarySearch = (arr, item, low = 0, high = arr.length - 1) => {
 		};
 		
 	}
-	return null;
+	return -1; // we search whole array without finding the item
+}
+
+function binarySearchRecursion(arr, item, low = 0, high = arr.length - 1) {
+	const mid = Math.floor((low + high) / 2);
+
+	if (low <= high) { // if low is lower than high
+		// Base case
+		if (arr[mid] === item) {
+			// item found => return its index
+			return mid;
+		}
+
+		if (item < arr[mid]) {
+			return binarySearchRecursion(arr, item, low, mid - 1);
+		} else{	
+			return binarySearchRecursion(arr, item, mid + 1, high);
+		} 
+	} else {
+		return -1;
+	}
 }
 
 
@@ -39,3 +59,5 @@ const nameArr = ['Alpha', 'Bravo', 'Delta', 'Golf', 'Mike', 'Romeo', 'Sierra', '
 
 console.log(`\t5 is at index:`, binarySearch(numberArr, 5)); // 4;
 console.log(`\tSierra is at index:`, binarySearch(nameArr, 'Sierra')); // 6;
+console.log(`(Recursion)Looking for 3 from array ${numberArr}`)
+console.log('\t Index: ', binarySearchRecursion(numberArr, 3))
