@@ -15,14 +15,14 @@ function count(i) {
 // count(10);
 
 // [+] 2. FACTORIAL [+]
-function factorial (n) {
+function factorial(n) {
 	if (n === 1) {
 		return 1;
 	} else {
 		return n * factorial(n - 1);
 	}
 }
-// console.log(factorial(4))
+console.log('factorial of 4 is:', factorial(4), '\n')
 
 
 /* [+] 3. Sum of all numbers in array using recursion [+]; */
@@ -35,7 +35,7 @@ const sum = (arr) => (arr.length === 0) ? 0 : arr[0] + sum(arr.slice(1));
 	- Else, add the first element in the array with the remainder of the array
 	- At some point, these successive calls will eventaully result in a call to sum[]
 */ 
-// console.log(sum(arr)); // 15
+console.log(`Sum of array [${arr}] is:\n`, sum(arr), '\n'); // 15
 
 // Normal function
 function sum1(arr) {
@@ -61,13 +61,17 @@ function binarySearchRecursion(arr, item, low = 0, high = arr.length - 1) {
 		}
 
 		if (item < arr[mid]) {
+			// This time decrease the value of "mid" and call the function again
+			// If item found the further iteration, main method will return will also
+			// return that same item
 			return binarySearchRecursion(arr, item, low, mid - 1);
 		} else{	
+			// This time increase the value of "mid" and call the function again
 			return binarySearchRecursion(arr, item, mid + 1, high);
 		} 
 	} else {
 		return -1;
 	}
 }
-console.log(`Looking for 3 from array ${arr}`)
+console.log(`Looking for 3 from array [${arr}]`)
 console.log('\t Index: ', binarySearchRecursion(arr, 3))

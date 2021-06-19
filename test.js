@@ -31,6 +31,7 @@ const binarySearch = (arr, item) => {
 
 // console.log(binarySearch([1,2,3,4,5,6], 4));
 
+const unsortedArray = [2,7,1,5,9];
 
 // [+] selectionSort [+]
 const selectionSort = (arr) => {
@@ -59,4 +60,55 @@ const selectionSort = (arr) => {
 
 	return array;
 }
-console.log(selectionSort([2,7,1,5,9]));
+// console.log(selectionSort(unsortedArray));
+
+
+// [+] QuickSort [+]
+const quickSort = (arr) => {
+	console.log('\n----- Array to be sorted:', arr, ' -----');
+	let length = arr.length;
+
+	// Base case
+	if (length <= 1) return arr;
+
+	// Variables
+	const PIVOT = arr[0]; // Always grab the 1st element in the array. A Pivot
+	const LESSER = []; // Array to store elements less than PIVOT
+	const GREATER = []; // Array to store elements greater than PIVOT
+
+	console.log(`Pivot is ${PIVOT}`)
+
+	// Start the loop
+	for (let x = 1; x < length; x++) {
+		if (arr[x] < PIVOT) {
+			console.log(`Pushing ${arr[x]} in lesser`)
+			LESSER.push(arr[x]);
+			console.log(`Lesser: [${LESSER}]\n`)
+		} else {
+			console.log(`Pushing ${arr[x]} in greater`)
+			GREATER.push(arr[x]);
+			console.log(`Greater: [${GREATER}]\n`);
+		}
+	};
+
+	// After this loop, we will have 2 arrays in total
+	// LESSER and GREATER, which are not sorted
+
+	console.log(`LESSER: [${LESSER}] | GREATER: [${GREATER}]`)
+
+	// Sort the LESSER array and push PIVOT to it then 
+	// sort the GREATER  array and finally join them all
+
+	console.log(`Sorting LESSER [${LESSER}]`)
+	let sorted = quickSort(LESSER); // quickSort LESSER array
+	console.log(`Pushing PIVOT ${PIVOT} to [${sorted}](sorted)`)
+	sorted.push(PIVOT); // append PIVOT values on LESSER array
+	console.log(`Sorted: [${sorted}]`)
+	sorted = sorted.concat(quickSort(GREATER)); // Join both arrays 
+	console.log('Sorted array after pushing sorted GREATER')
+
+	console.log('Returning', sorted);
+	return sorted;
+}
+
+console.log(quickSort(unsortedArray));
