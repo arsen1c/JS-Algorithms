@@ -44,6 +44,35 @@
 
 */ 
 
-function detectFraud(votes) {
+// function detectFraud(votes) {
+// 	const track = [];
+// 	for (let x = 0; x < votes.length; x++) {
+// 		for (let y = 0; y < x.length; y++) {
 
+// 		}	
+// 	}
+// }
+
+
+
+function findPair(nums, target) {
+	//  Create an empty HashTable
+	const dict = new Map();
+
+	// do for each element
+	for (let [index, element] of nums.entries()) {
+		// Check if pair `(value, target - value ) exists`
+
+		// if the difference is seen before, print the pair
+		if (dict.has(target-element)) {
+			console.log(`Pair found: (${nums[dict.get(target - element)]}, ${nums[index]})`);
+			return;
+		}
+
+		dict.set(element, index);
+	}
+
+	console.log('Pair not found');
 }
+
+findPair([8, 7, 2, 5, 3, 1], 10)
