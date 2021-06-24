@@ -6,10 +6,10 @@ let list = null; // start with empty list
 // Since we need to create node pretty often, lets write a function for that
 
 function makeNode(value) {
-	return {
-		value: value,
-		next: null
-	}
+  return {
+    value: value,
+    next: null
+  }
 };
 
 // Create the nodes
@@ -29,22 +29,22 @@ two.next = one;
 
 // Function to print out the nodes
 function printList(list) {
-	// Start with the first node
-	let current = list;
+  // Start with the first node
+  let current = list;
 
-	// As long as `current` isn't null, print out the value 
-	while(current) {
-		console.log(current.value);
+  // As long as `current` isn't null, print out the value 
+  while(current) {
+    console.log(current.value);
 
-		// advance to the next node in the list by replacing
-		// current with whatever `next` points to
-		current = current.next;
-	};
+    // advance to the next node in the list by replacing
+    // current with whatever `next` points to
+    current = current.next;
+  };
 };
 
 printList(four);
 
 // Function to print out the nodes (Recursive)
 function printListRecursive(list) {
-
+    return;
 }
