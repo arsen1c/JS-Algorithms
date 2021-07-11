@@ -1,4 +1,6 @@
 /*
+    Link: https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/
+
     Given the array candies and the integer extraCandies, where candies[i] represents 
     the number of candies that the ith kid has.
 

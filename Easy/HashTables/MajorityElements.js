@@ -60,3 +60,39 @@ var majorityElement = function(nums) {
 };
 
 console.log(majorityElement([6,5,5]));
+
+
+var majorityElement1 = function(nums) {
+    const storage = new Map();
+    let highest = [0,0];
+    
+    for (let [key, value] of nums.entries()) {
+        if (storage.has(value)) {
+            let currValue = storage.get(value) + 1;
+            storage.set(value, currValue);
+            
+            if (highest[1] < currValue){
+                highest[0] = value;
+                highest[1] =  currValue;
+            }
+        }else {
+            storage.set(value, 1);
+        }
+    }
+    // console.log(highest);
+    return highest[0];
+};
+
+majorityElement1([2,2,1,1,1,2,2]);
+
+
+// Solution from discussion
+var majorityElement2 = function(nums) {
+    var obj = {};
+    
+    for(var i = 0; i < nums.length; i++){
+        obj[nums[i]] = obj[nums[i]] + 1 || 1;
+        if(obj[nums[i]] > nums.length / 2)  return nums[i];
+    }
+    
+};
