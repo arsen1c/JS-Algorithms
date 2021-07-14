@@ -12,20 +12,31 @@ const quickSort = (arr) => {
 		return arr;
 	}
 
-	const PIVOT = arr[0];
+	const PIVOT = arr[0]; // 1st element is the PIVOT
+	// Declare GREATER and LESSER array
 	const GREATER = [];
 	const LESSER = [];
 
 	for (let i = 1; i < length; i++){
+		// if current element is lesser than PIVOT
 		if (arr[i] < PIVOT) {
+			// Push the element in the LESSER array
 			LESSER.push(arr[i]);
 		} else {
+			// Else push the element in the GREATER array
 			GREATER.push(arr[i]);
 		}
 	};
 
+	/**
+	 * At this point we have 2 new arrays, GREATER and LESSER
+	*/
+	
+	// Rerun the function with LESSER array
 	let sorted = quickSort(LESSER);
+	// Push the PIVOT vlaue in the sorted array
 	sorted.push(PIVOT);
+	// add sorted GREATED array 
 	sorted = sorted.concat(quickSort(GREATER));
 
 	return sorted;
