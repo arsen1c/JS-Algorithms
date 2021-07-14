@@ -1,0 +1,28 @@
+{
+  "name": "grokkingalgo",
+  "version": "1.0.0",
+  "description": "Algorithms and Data structures in Javascript",
+  "main": "summary.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arsen1c/JS-Algorithms.git"
+  },
+  "keywords": [
+    "javascript",
+    "Algorithms",
+    "datastructures",
+    "dsa"
+  ],
+  "author": "Arsen1c",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arsen1c/JS-Algorithms/issues"
+  },
+  "homepage": "https://github.com/arsen1c/JS-Algorithms#readme",
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
+}

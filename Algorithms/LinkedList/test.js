@@ -24,7 +24,7 @@ class LinkedList {
     }
 
     this.size++;
-  };
+  }
 
   insert(value, index) {
     if (index < 0 || index > this.size) {
@@ -37,14 +37,14 @@ class LinkedList {
     node.next = nextNode;
 
     this.size++;
-  };
+  }
 
   getPrevNextNodes(index) {
     let count = 0;
     let prevNode = this.head;
     let nextNode = prevNode.next;
 
-    while(count < index - 1) {
+    while (count < index - 1) {
       prevNode = prevNode.next;
       nextNode = prevNode.next;
       count++;
@@ -53,7 +53,7 @@ class LinkedList {
     this.size++;
 
     return { prevNode, nextNode };
-  };
+  }
 
   remove(index) {
     let { prevNode, nextNode } = this.getPrevNextNodes(index);
@@ -64,10 +64,10 @@ class LinkedList {
 
 const ll = new LinkedList();
 ll.add('arsenic');
-ll
+ll;
 ll.add('astrix');
-ll
-const returnedValue = ll.insert('ra', 1)
-ll
+ll;
+const returnedValue = ll.insert('ra', 1);
+ll;
 ll.remove(1);
 ll;

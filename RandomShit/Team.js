@@ -26,7 +26,7 @@
 			1 0 0
 		output:
 			2
-*/ 
+*/
 
 'use strict';
 process.stdin.resume();
@@ -35,37 +35,39 @@ process.stdin.setEncoding('utf-8');
 let inputString = '';
 let currentLine = 0;
 
-process.stdin.on('data', inputStdin => {
+process.stdin.on('data', (inputStdin) => {
   inputString += inputStdin;
 });
 
-process.stdin.on('end', _ => {
-  inputString = inputString.trim().split('\n').map(string => {
-    	return string.trim();
-    })https://www.hackerrank.com/challenges/js10-date/leaderboard;
-    
-    main();    
+process.stdin.on('end', (_) => {
+  inputString = inputString
+    .trim()
+    .split('\n')
+    .map((string) => {
+      return string.trim();
+    });
+
+  main();
 });
 
 function readline() {
   return inputString[currentLine++];
 }
 
-
 function numberOfSolutions(...args) {
-	const [, ...inputs] = args;
-	inputs.forEach(input => console.log(input));
-	// return inputs.map(x => )
+  const [, ...inputs] = args;
+  inputs.forEach((input) => console.log(input));
+  // return inputs.map(x => )
 }
-numberOfSolutions([])
+numberOfSolutions([]);
 
 function main() {
   const inputsLength = readline();
 
   let inputs = [];
-  for(let x = 0; x < inputsLength; x++) {
-  	inputs.push(readline());
-  };
+  for (let x = 0; x < inputsLength; x++) {
+    inputs.push(readline());
+  }
 
   numberOfSolutions(inputs);
 }
