@@ -17,7 +17,7 @@ function printFullName(homeTown, state) {
 
 /**
  * Function Borrowing 
- * Borrow functiong from ohter object and use it
+ * Borrow functiong from other object and use it
  * "Call" method
  *  - 1st agrument is the "this" reference
 */
