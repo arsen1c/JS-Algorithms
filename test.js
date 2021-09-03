@@ -33,3 +33,8 @@ function main() {
   const input = readline();
   input <= 2 || input % 2 !== 0 ? console.log('NO') : console.log('YES');
 }
+
+
+const bfs = (graph, sourceNode) {
+  // Bfs uses Queue and Dfs uses Stack
+}

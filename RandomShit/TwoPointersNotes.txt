@@ -1,0 +1,16 @@
+/**
+  * Reference Link: https://afteracademy.com/blog/what-is-the-two-pointer-technique
+*/
+
+
+# Concept Introduction
+  - It involves using two pointers to save time and space. (Here, pointers are basically array indexes).
+  - The idea here is to iterate two different parts of the array simultaneously to get the answer faster.
+
+# Implementation 
+  - There are 2 approach for this
+    1. One pointer at each end
+    2. Different Paces
+
+1. One pointer at each end
+  - One pointer starts from beginning and other from the end and they proceed towards each other

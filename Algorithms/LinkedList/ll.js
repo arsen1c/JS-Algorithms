@@ -144,17 +144,17 @@ const ll = new LinkedList();
  * Append
  */
 ll.append('arsenic');
-console.log(ll);
+// console.log(ll);
 ll.append('astrix');
-console.log(ll);
+// console.log(ll);
 ll.append('ramu');
-console.log(ll);
+// console.log(ll);
 
 /**
  * Prepend
  */
 ll.prepend('Aashish');
-console.log(ll);
+// console.log(ll);
 
 /**
  * Insert
@@ -163,6 +163,10 @@ ll.insert('Tinku', 7);
 // ll
 // ll.remove(0);
 // ll;
-ll.reverse();
+// ll.reverse();
 ll;
-console.log(ll.lookup(1));
+// console.log(ll.lookup(1));
+
+module.exports = {
+  ll
+}

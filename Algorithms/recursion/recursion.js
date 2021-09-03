@@ -75,3 +75,69 @@ function binarySearchRecursion(arr, item, low = 0, high = arr.length - 1) {
 }
 console.log(`Looking for 3 from array [${arr}]`);
 console.log('\t Index: ', binarySearchRecursion(arr, 3));
+
+
+/**
+ * Problem 1: prints number upto a specific number recursively
+ * @param {Number} upto, 
+ * @param {Number} startsAt
+ * @return {Number} startsAt - upto
+*/
+function printNumbers(upto, startsAt) {
+    console.log(startsAt)
+    if (startsAt === upto) return;
+
+    printNumbers(upto, startsAt+1);
+};
+
+printNumbers(10, 1); // 1-10
+
+
+/**
+ * Problem 2: Print elements of array from left and right at the same time
+ * @param {number[]} arr
+ * @return {number[]}
+*/
+function printNumbersFromLeftToRight(arr) {
+    let startIndex = 0;
+    let endIndex = arr.length - 1;
+    const result = [];
+
+    while(startIndex < endIndex) {
+        result.push([arr[startIndex],arr[endIndex]]);
+        if (startIndex===endIndex) return;
+        
+        startIndex++;
+        endIndex--;
+    }
+    console.log(result);
+}
+
+printNumbersFromLeftToRight([1,2,3,4]); // [[1,4], [2,3]]
+
+
+
+/**
+ * Problem 3: Print all odd numbers from N to 0 using for loop and while loop
+ * both
+ * @param {number} startIndex
+ * @return {array}
+*/
+function oddNumbers(startIndex) {
+    let forLoopSolution = [];
+    let whileLoopSolution = [];
+
+    for (let x = startIndex; x >= 0; x--) {
+        if (x & 1) forLoopSolution.push(x);
+    }
+
+    while(startIndex > 0) {
+        if (startIndex & 1) whileLoopSolution.push(startIndex);
+        startIndex--;
+    }
+
+    console.log('for loop solution:', forLoopSolution);
+    console.log('while loop solution:', whileLoopSolution);
+}
+
+oddNumbers(10); // [9,7,5,3,1]
