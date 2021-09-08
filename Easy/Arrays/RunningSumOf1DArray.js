@@ -33,4 +33,23 @@ function runningSum(nums) {
     return arr;
 }
 
+// My 2nd Try using map
+function runningSum2(arr) { 
+    let total = 0;
+
+    return arr.map(e => {
+        total += e;
+        return total;
+    })
+}
+
+function runningSum3(arr) {
+    arr.reduce((a, c, i, nums) => {
+        console.log(nums);
+        return nums[i] += a
+    });
+    console.log(arr);
+}
+
 console.log(runningSum([1,2,3,4]))
+runningSum3([1,2,3,4]);

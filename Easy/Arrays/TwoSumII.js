@@ -35,7 +35,7 @@
  * Two Sum of Sorted array 
  * Using Two pointer technique
 */
-function twoSum(arr) {
+function twoSum(arr, target) {
   let left = 0;
   let right = arr.length - 1;
 
@@ -53,3 +53,5 @@ function twoSum(arr) {
 
   return false;
 }
+
+console.log(twoSum([1,2,3,4,5], 6))
