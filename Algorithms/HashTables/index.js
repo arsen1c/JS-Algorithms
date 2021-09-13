@@ -11,21 +11,22 @@ for (let [key, value] of myMap) {
 
 /*
  *	Implementing Hash Tables in Javascript (3 Steps):
- *		1. Create a HashTable class with "table" and "sizze" initial properties
+ *		1. Create a HashTable class with "table" and "size" initial properties
  *		2. Add a "hash()" function to tranform keys into indices.
  *		3. Add the "set()" and "get()" methods for adding and retrieving key/value pairs from the table
  */
 
 class HashTable {
-  constructor() {
-    this.table = new Array(127); // 127 buckets
+  constructor(size) {
+    this.size = size;
+    this.table = new Array(this.size); // 127 buckets
     this.numItems = 0;
     // Increase the size of the array when loadFactor is 80%;
     // this.loadFactor = this.numItems / this.table.length;
   }
 
   // Hash() method that will accept a key value and tranform it into an Index.
-  // Sum the ASCII code of the characters in the key using charCodeAt() method.
+  // Sum the ASCII code of the characters in the "key" using charCodeAt() method.
   // Note: "_" to indicate that it's a private class
 
   _hash(key) {
@@ -75,7 +76,7 @@ class HashTable {
   }
 }
 
-const ht = new HashTable();
+const ht = new HashTable(127);
 ht.set('Name', 'Arsenic');
 ht.set('age', 20);
 console.log(ht.get('Name'));

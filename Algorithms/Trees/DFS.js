@@ -1,12 +1,13 @@
 // const depthFirstPrint = (grpah, sourceNode) => {
-//   const stack = [ sourceNode ]; // DFS uses Stacks
-
+//    // DFS uses stack
+//   const stack = [ sourceNode ]; // ['a'] 
 //   // while stack not empty
 //   while(stack.length > 0) { 
 //     const current = stack.pop();
 //     console.log(current);
-
+//     // console.log(graph['a']);
 //     for(let neighbor of graph[current]) {
+//       // console.log(neighbor);
 //       stack.push(neighbor);
 //     }
 //   }

@@ -58,7 +58,7 @@ lime1.color = 'yellow';
 console.log("Lime1: " + lime1.getInformation1()); // Lime1: This Mexican Lime 1 is yellow;
 console.log(lime1);
 
-// ===============| Singleton Class Using a Function|===============
+// ===============| Singleton Class Using a Function |===============
 newTopic('Singleton Class Using a Function');
 
 /*
@@ -86,6 +86,9 @@ newTopic('classes');
 
 //	+ Declaring a Class using "class" keyword;
 class Polygon {
+	/**
+	 * @params {number, number} height, width
+	 * */
 	constructor(height, width) {
 		this.height = height;
 		this.width = width;

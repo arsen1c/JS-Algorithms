@@ -21,6 +21,7 @@ function Node(data) {
   this.left = null;
 }
 
+
 class BinarySearchTree {
   constructor() {
     this.root = null;
@@ -39,7 +40,7 @@ class BinarySearchTree {
   insertNode(node) {
     let currentNode = this.root;
 
-    // Whie currentNode is not null
+    // While currentNode is not null
     while(currentNode) {
       // if new node data is less than current node data
       if (node.data < currentNode.data) {
@@ -94,7 +95,7 @@ class BinarySearchTree {
         node.left = this.removeNode(node.left, data);
       return node;
     } else {
-      node.right = this.removeNode(onde.right, data);
+      node.right = this.removeNode(node.right, data);
       return node;
     }
   }
@@ -108,10 +109,8 @@ class BinarySearchTree {
       node = node.left;
     }
 
-    return node.data;
+    return node;
   }
-
-
 }
 
 const tree = new BinarySearchTree();
@@ -121,6 +120,7 @@ tree.add(3);
 tree.add(2);
 tree.add(6);
 tree.add(7);
+tree.add();
 tree;
 tree.remove(5);
-tree;
+console.log(tree.getMin());
