@@ -7,7 +7,7 @@ class Node {
     this.value = value;
     this.next = null;
   }
-}
+};
 
 class LinkedList {
   constructor() {
@@ -20,8 +20,8 @@ class LinkedList {
    * Append a node to the end of the linked list
    * Time complexity: O(1)
    * @param {any} value
-   */
-  append(value) {
+   * */
+   append(value) {
     const newNode = new Node(value);
 
     if (!this.head) {
@@ -31,142 +31,128 @@ class LinkedList {
       this.tail.next = newNode;
       this.tail = newNode;
     }
-
     this.size++;
-  }
+   }
 
-  /**
-   * Prepend: Adding values to the started of the linked list
-   * Time complexity: O(1)
-   * @param {any} value
-   */
-  prepend(value) {
-    const node = new Node(value);
+   /**
+    * Prepend a node to the start of the Linked list
+    * @param {any} value
+    * */
+    prepend (value) {
+      const newNode = new Node(value);
 
-    node.next = this.head;
-    this.head = node;
-    this.size++;
-  }
-
-  /**
-   * Insert: Adding values at a specific index
-   * @param {any} value
-   * @param {number} index
-   */
-  insert(value, index) {
-    if (index < 0 || index >= this.size) {
-      return this.append(value);
+      newNode.next = this.head;
+      this.head = newNode;
+      this.size++;
     }
 
-    const node = new Node(value);
-    const { prevNode, nextNode } = this.getPrevNextNodes(index);
-    prevNode.next = node;
-    node.next = nextNode;
-    this.size++;
-  }
+    /**
+     * Insert: Adding a node at a specific index
+     * @param {any} value
+     * @param {number} index
+     * */
+     insert (value, index) {
+      if (index < 0 || index > this.size ) {
+        // Append the node to the end of the linked list
+        return this.append(value);
+      }
 
-  /**
-   * Remove a node at a specific index
-   * @param {number} index
-   */
-  remove(index) {
-    let { prevNode, nextNode } = this.getPrevNextNodes(index);
-    prevNode.next = nextNode.next;
-    this.size--;
-  }
+      if (index === 0) {
+        // Prepend a node to the start of the linked list
+        return this.prepend(value);
+      }
 
-  /**
-   * Get previous and next node
-   * @param {number} index
-   * @returns {object}
-   */
-  getPrevNextNodes(index) {
-    let count = 0;
-    let prevNode = this.head;
-    let nextNode = prevNode.next;
+      const newNode = new Node(value);
+      const { previousNode, nextNode } = this.getPrevNextNodes(index);
 
-    while (count < index - 1) {
-      prevNode = prevNode.next;
-      nextNode = prevNode.next;
-      count++;
-    }
+      previousNode.next = newNode;
+      newNode.next = nextNode;
+      this.size++;
+     }
 
-    return { prevNode, nextNode };
-  }
+     /**
+      * Lookup a node at specific index
+      * @param {number} index
+      * @return {node} node
+      * */
+      lookup (index) {
+        let counter = 0;
+        let currentNode = this.head;
 
-  /**
-   * Reversing a linked list
-   * => We need to keep track of 3 nodes:
-   *    - previousNode, currentNode and nextNode
-   * => Initially, previousNode has value "null" and
-   *    currentNode has the vaue of "head"
-   * => We assign the nextNode to the currentNode.next
-   * => Next, we point the "currentNode.next" to previousNode
-   * => Now, we shift the previousNode to currentNode and
-   *    currentNode to nextNode
-   */
-  reverse() {
-    let prevNode = null;
-    let currentNode = this.head;
+        while(counter < index) {
+          currentNode  = currentNode.next;
+          counter++;
+        }
+        return currentNode;
+      }
 
-    while (currentNode !== null) {
-      let nextNode = currentNode.next;
-      currentNode.next = prevNode;
-      prevNode = currentNode;
-      currentNode = nextNode;
-    }
+     /**
+      * Remove a node from a specific index
+      * @param {number} index
+      * */
+     remove (index) {
+      let removedNode = null;
+      
+      if (index < 0 || index >= this.size) {
+        // invalid index
+        return false;
+      }
 
-    this.head = prevNode;
-  }
+      if (index === 0) {
+        let curr = this.head;
+        this.head = curr.next;
+        removedNode = curr;
+      } else {
+        let { previousNode, nextNode } = this.getPrevNextNodes(index);
+        // change the pointer of previous node to next node of current node.
+        previousNode.next = nextNode.next;
+        
+        if (index === this.size-1) {
+          // Point the tail to the new last element
+          this.tail = previousNode;
+        };
+        removedNode = nextNode;
+      }
 
-  /**
-   * Lookup: Looking up a value at specific index
-   * @param {number} index
-   * @returns {node}
-   */
-  lookup(index) {
-    let counter = 0;
-    let currentNode = this.head;
+      this.size--;
+      return removedNode;
+     }
 
-    while (counter < index) {
-      currentNode = currentNode.next;
-      counter++;
-    }
+     /**
+      * Checks if the list is empty or not
+      * */
+      isEmpty () {
+        return this.size ? false : true;
+      }
 
-    return currentNode;
-  }
+     /**
+      * Get previous and next nodes
+      * @param {number} index
+      * */
+      getPrevNextNodes (index) {
+        let count = 0;
+        let previousNode = this.head;
+        let nextNode = previousNode.next;
+
+        while(count < index - 1) {
+          previousNode = previousNode.next;
+          nextNode = previousNode.next;
+          count++;
+        }
+
+        return { previousNode, nextNode };
+      }
 }
 
-// Create a new linked list object
 const ll = new LinkedList();
+console.log(ll.isEmpty()); // => true
 
-/**
- * Append
- */
-ll.append('arsenic');
-// console.log(ll);
-ll.append('astrix');
-// console.log(ll);
-ll.append('ramu');
-// console.log(ll);
+ll.append(1);
+ll.append(2);
+ll.append(3);
 
-/**
- * Prepend
- */
-ll.prepend('Aashish');
-// console.log(ll);
+console.log(ll.remove(0)); // => 1
+console.log(ll.lookup(0)); // => 2
 
-/**
- * Insert
- */
-ll.insert('Tinku', 7);
-// ll
-// ll.remove(0);
-// ll;
-// ll.reverse();
-ll;
-// console.log(ll.lookup(1));
-
-module.exports = {
-  ll
-}
+ll.insert(1, 0); // inserts value "1" at the start (0th index) of the linked list
+console.log(JSON.stringify(ll, null, 2)); // prints the linked list
